@@ -410,3 +410,145 @@ body {
   color: var(--amber600);
 }
 .earned-badge-icon { font-size: 18px; }
+
+/* ── CAMERA NAV BUTTON ── */
+.nav-btn-camera {
+  width: 48px;
+  height: 48px;
+  margin-top: -22px;
+  border-radius: 50%;
+  background: var(--amber400);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(186, 117, 23, .35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.nav-btn-camera.active {
+  color: #fff;
+  background: var(--amber600);
+}
+
+.nav-btn-camera:hover {
+  background: var(--amber600);
+}
+
+/* ── CAMERA TAB ── */
+.camera-screen {
+  flex: 1;
+  background: #111;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px 18px;
+  position: relative;
+}
+
+.camera-top {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.camera-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: #fff;
+}
+
+.camera-sub {
+  font-size: 10px;
+  color: rgba(255,255,255,.6);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+.camera-preview {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.camera-frame {
+  width: 220px;
+  height: 280px;
+  border-radius: 24px;
+  border: 1px dashed rgba(255,255,255,.35);
+  background: rgba(255,255,255,.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.camera-frame-text {
+  font-size: 11px;
+  color: rgba(255,255,255,.65);
+  text-align: center;
+  padding: 0 16px;
+}
+
+.camera-photo-preview {
+  width: 220px;
+  height: 280px;
+  border-radius: 24px;
+  object-fit: cover;
+  border: 1px solid rgba(255,255,255,.18);
+}
+
+.camera-info-card {
+  background: rgba(255,255,255,.08);
+  border: .5px solid rgba(255,255,255,.12);
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.camera-info-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  color: rgba(255,255,255,.75);
+}
+
+.camera-file-input {
+  display: none;
+}
+
+.camera-capture-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,.5);
+  background: #fff;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,.35);
+}
+
+.camera-retake-btn {
+  border: none;
+  border-radius: 12px;
+  padding: 10px 14px;
+  background: #fff;
+  color: #111;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Sora', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+}

@@ -4,15 +4,20 @@ import {
   IconBuildingStore,
   IconRosette,
   IconUserStar,
+  IconCamera,
 } from '@tabler/icons-react'
+
 import MapTab from './components/MapTab'
 import DetailTab from './components/DetailTab'
 import StampsTab from './components/StampsTab'
 import GuideTab from './components/GuideTab'
+import VoucherTab from './components/VoucherTab'
+import CameraTab from './components/CameraTab'
 
 const TABS = [
   { id: 'map',    label: 'Explore',     Icon: IconMap2 },
   { id: 'detail', label: 'Restaurant',  Icon: IconBuildingStore },
+  { id: 'camera', label: 'Camera',      Icon: IconCamera, isCenter: true },
   { id: 'stamps', label: 'Stamps',      Icon: IconRosette },
   { id: 'guide',  label: 'Local Guide', Icon: IconUserStar },
 ]
@@ -33,21 +38,23 @@ export default function App() {
           </div>
 
           <div className="content">
-            <MapTab    active={activeTab === 'map'}    onNavigate={setActiveTab} />
+            <MapTab active={activeTab === 'map'} onNavigate={setActiveTab} />
             <DetailTab active={activeTab === 'detail'} onBack={() => setActiveTab('map')} />
+            <CameraTab active={activeTab === 'camera'} />
             <StampsTab active={activeTab === 'stamps'} />
-            <GuideTab  active={activeTab === 'guide'}  />
+            <GuideTab active={activeTab === 'guide'} onNavigate={setActiveTab} />
+            <VoucherTab active={activeTab === 'voucher'} onBack={() => setActiveTab('guide')} />
           </div>
 
           <nav className="bottom-nav">
-            {TABS.map(({ id, label, Icon }) => (
+            {TABS.map(({ id, label, Icon, isCenter }) => (
               <button
                 key={id}
-                className={`nav-btn${activeTab === id ? ' active' : ''}`}
+                className={`nav-btn${activeTab === id ? ' active' : ''}${isCenter ? ' nav-btn-camera' : ''}`}
                 onClick={() => setActiveTab(id)}
               >
-                <Icon size={22} stroke={1.5} />
-                <span>{label}</span>
+                <Icon size={isCenter ? 24 : 22} stroke={1.5} />
+                {!isCenter && <span>{label}</span>}
               </button>
             ))}
           </nav>
