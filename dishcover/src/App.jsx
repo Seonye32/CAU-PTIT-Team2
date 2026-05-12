@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import {
   IconMap2,
   IconBuildingStore,
@@ -24,6 +24,21 @@ const TABS = [
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('map')
+  const [capturedPhoto, setCapturedPhoto] = useState(null)
+  const cameraInputRef = useRef(null)
+
+  const openCamera = () => {
+  cameraInputRef.current?.click()
+  }
+
+  const handleCameraChange = (event) => {
+    const file = event.target.files?.[0]
+    if (!file) return
+
+    const imageUrl = URL.createObjectURL(file)
+    setCapturedPhoto(imageUrl)
+    setActiveTab('camera')
+  }
 
   return (
     <div className="scene">
@@ -40,10 +55,18 @@ export default function App() {
           <div className="content">
             <MapTab active={activeTab === 'map'} onNavigate={setActiveTab} />
             <DetailTab active={activeTab === 'detail'} onBack={() => setActiveTab('map')} />
-            <CameraTab active={activeTab === 'camera'} />
+            <CameraTab active={activeTab === 'camera'} photoUrl={capturedPhoto} onRetake={openCamera} />
             <StampsTab active={activeTab === 'stamps'} />
             <GuideTab active={activeTab === 'guide'} onNavigate={setActiveTab} />
             <VoucherTab active={activeTab === 'voucher'} onBack={() => setActiveTab('guide')} />
+            <input
+              ref={cameraInputRef}
+              className="camera-file-input"
+              type="file"
+              accept="image/*"
+              capture="environment"
+              onChange={handleCameraChange}
+            />
           </div>
 
           <nav className="bottom-nav">
@@ -51,7 +74,13 @@ export default function App() {
               <button
                 key={id}
                 className={`nav-btn${activeTab === id ? ' active' : ''}${isCenter ? ' nav-btn-camera' : ''}`}
-                onClick={() => setActiveTab(id)}
+                onClick={() => {
+                  if (id === 'camera') {
+                    openCamera()
+                  } else {
+                    setActiveTab(id)
+                  }
+                }}
               >
                 <Icon size={isCenter ? 24 : 22} stroke={1.5} />
                 {!isCenter && <span>{label}</span>}
