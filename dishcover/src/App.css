@@ -88,6 +88,8 @@ body {
   align-items: center;
   justify-content: space-around;
   flex-shrink: 0;
+  position: relative;
+  z-index: 10;
 }
 .nav-btn {
   display: flex;
@@ -607,9 +609,13 @@ body {
 
 /* ── CAMERA NAV BUTTON ── */
 .nav-btn-camera {
-  width: 48px;
-  height: 48px;
-  margin-top: -22px;
+  width: 54px;
+  height: 54px;
+  min-width: 54px;
+  max-width: 54px;
+  min-height: 54px;
+  max-height: 54px;
+  margin-top: -24px;
   border-radius: 50%;
   background: var(--amber400);
   color: #fff;
@@ -617,7 +623,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
+  padding: 0 !important;
+  flex: 0 0 54px;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  z-index: 20;
 }
 
 .nav-btn-camera.active {
