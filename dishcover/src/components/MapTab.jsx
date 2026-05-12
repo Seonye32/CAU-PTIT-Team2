@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { IconSearch } from '@tabler/icons-react'
 import phoThinImg from '../assets/images/pho-thin-bo-ho.jpg'
 import bunChaImg from '../assets/images/bun-cha-huong-lien.jpeg'
 import logoImg from '../assets/images/dishcover-text-logo.png'
+import { RESTAURANTS } from '../data/restaurants'
+import SearchDropdown from './SearchDropdown'
 
 const PINS = {
   noodle: {
@@ -49,10 +50,11 @@ export default function MapTab({ active, onNavigate }) {
       <div className="map-header">
         <div className="map-header-top">
           <img src={logoImg} alt="Dishcover" style={{ height: 18, objectFit: 'contain' }} />
-          <div className="search-bar">
-            <IconSearch size={14} color="var(--gray400)" />
-            <span>Search in Hanoi</span>
-          </div>
+          <SearchDropdown
+            restaurants={RESTAURANTS}
+            placeholder="Search in Hanoi"
+            onSelect={(r) => r.dest && onNavigate(r.dest)}
+          />
         </div>
         <div className="filter-chips">
           {FILTERS.map((label) => (

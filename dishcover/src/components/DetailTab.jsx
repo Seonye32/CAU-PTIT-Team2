@@ -1,7 +1,6 @@
 import {
   IconArrowLeft,
   IconMapPin,
-  IconAlertTriangle,
   IconThumbUp,
   IconThumbDown,
 } from '@tabler/icons-react'
@@ -22,13 +21,13 @@ export default function DetailTab({ active, onBack }) {
       </div>
 
       <div className="detail-body">
-        <div className="detail-name">Phở Thìn Bờ Hồ</div>
+        <div className="detail-name">Bún Chả Hương Liên</div>
         <div className="detail-meta">
           <div className="stars">
-            {'★★★★★'.split('').map((s, i) => (
+            {'★★★★'.split('').map((s, i) => (
               <span key={i} style={{ color: 'var(--amber200)', fontSize: 11 }}>{s}</span>
             ))}
-            <span>5.0</span>
+            <span>4.8 (324)</span>
           </div>
           <div className="local-badge">
             <IconMapPin size={12} />
@@ -36,28 +35,21 @@ export default function DetailTab({ active, onBack }) {
           </div>
         </div>
 
-        <div className="trap-warning">
-          <IconAlertTriangle size={16} color="var(--red400)" style={{ flexShrink: 0, marginTop: 1 }} />
-          <div className="trap-warning-text">
-            <strong>Warning:</strong> Restaurants with "Pho Thin" signs nearby may be tourist traps. Please check the exact location.
-          </div>
-        </div>
-
         <div className="friend-visited">
           <div className="friend-avatars">
-            <div className="friend-avatar">JH</div>
-            <div className="friend-avatar" style={{ background: 'var(--coral100)', color: 'var(--coral600)' }}>SY</div>
+            <div className="friend-avatar">JS</div>
+            <div className="friend-avatar" style={{ background: 'var(--coral100)', color: 'var(--coral600)' }}>TL</div>
           </div>
-          <div className="friend-visited-text">Jihyun and Soyeon visited · "They said it was really good"</div>
+          <div className="friend-visited-text">Jisoo and Thanh Lan visited · "Absolutely the best bún chả in Hanoi!"</div>
         </div>
 
         <div className="section-title">Photo Reviews</div>
 
         <div className="review-card">
           <div className="review-header">
-            <div className="reviewer-dot">MJ</div>
+            <div className="reviewer-dot">JS</div>
             <div className="reviewer-info">
-              <div className="reviewer-name">Minjun · Seoul</div>
+              <div className="reviewer-name">Jisoo · Hanoi</div>
               <div className="reviewer-meta">📍 On-site Verified · 3 days ago</div>
             </div>
             <span className="verified-badge">✓ Verified</span>
@@ -66,7 +58,7 @@ export default function DetailTab({ active, onBack }) {
             <img src={bunChaImg2} alt="Bún Chả review" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
           <div className="review-text">
-            I waited in line from 7 a.m., and it was totally worth it. The broth was incredibly rich, and the noodles had a great texture. A must-visit spot if you come to Hanoi!
+            I waited in line from 11 a.m., and it was totally worth it. The grilled pork patties were incredibly smoky, and the dipping sauce was perfectly balanced. A must-visit spot if you come to Hanoi!
           </div>
           <div className="review-helpful">
             <button className="helpful-btn"><IconThumbUp size={12} /> Helpful (47)</button>
@@ -76,9 +68,9 @@ export default function DetailTab({ active, onBack }) {
 
         <div className="review-card">
           <div className="review-header">
-            <div className="reviewer-dot" style={{ background: 'var(--green200)', color: 'var(--green600)' }}>HA</div>
+            <div className="reviewer-dot" style={{ background: 'var(--green200)', color: 'var(--green600)' }}>TL</div>
             <div className="reviewer-info">
-              <div className="reviewer-name">Minh Anh · Hanoi Local</div>
+              <div className="reviewer-name">Thanh Lan · Hanoi Local</div>
               <div className="reviewer-meta">🏠 Local Guide · Lv.4</div>
             </div>
             <span className="verified-badge" style={{ background: 'var(--green50)', color: 'var(--green600)' }}>Local</span>

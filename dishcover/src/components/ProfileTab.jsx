@@ -16,7 +16,7 @@ const SAVED = [
   { img: bunBoImg,  name: 'Bún Bò Nam Bộ',  sub: 'Bun Bo · Ba Dinh' },
 ]
 
-export default function ProfileTab({ active, onBack }) {
+export default function ProfileTab({ active, onBack, onNavigate, isLocalVerified }) {
   return (
     <div className={`tab-content${active ? '' : ' hidden'}`}>
       <div className="guide-header" style={{ paddingTop: 14 }}>
@@ -90,6 +90,20 @@ export default function ProfileTab({ active, onBack }) {
             </div>
           </div>
         ))}
+        <button
+          onClick={() => onNavigate('localverification')}
+          style={{
+            marginTop: 16, width: '100%', padding: '12px 0',
+            background: 'var(--amber400)',
+            border: 'none',
+            borderRadius: 12, cursor: 'pointer',
+            fontSize: 13, fontWeight: 600, color: '#fff',
+            fontFamily: 'Sora, sans-serif',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+          }}
+        >
+          {isLocalVerified ? '✓ Verified Local' : '🏠 Local Verification'}
+        </button>
       </div>
     </div>
   )

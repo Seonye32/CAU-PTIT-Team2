@@ -17,6 +17,7 @@ import VoucherTab from './components/VoucherTab'
 import ProfileTab from './components/ProfileTab'
 import SocialsTab from './components/SocialsTab'
 import CameraTab from './components/CameraTab'
+import LocalVerification from './components/LocalVerification'
 
 const TABS = [
   { id: 'map', label: 'Explore', Icon: IconMap2 },
@@ -29,6 +30,7 @@ const TABS = [
 export default function App() {
   const [activeTab, setActiveTab] = useState('map')
   const [capturedPhoto, setCapturedPhoto] = useState(null)
+  const [isLocalVerified, setIsLocalVerified] = useState(false)
   const cameraInputRef = useRef(null)
 
   const openCamera = () => {
@@ -111,6 +113,14 @@ export default function App() {
             <ProfileTab
               active={activeTab === 'profile'}
               onBack={() => setActiveTab('map')}
+              onNavigate={setActiveTab}
+              isLocalVerified={isLocalVerified}
+            />
+
+            <LocalVerification
+              active={activeTab === 'localverification'}
+              onBack={() => setActiveTab('profile')}
+              onVerified={() => setIsLocalVerified(true)}
             />
 
             <SocialsTab

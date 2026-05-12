@@ -38,7 +38,7 @@ export default function CameraTab({ active, photoUrl, onRetake, onNavigate }) {
     setStep('preview')
     setReviewerType(null)
     setRating(0)
-    onNavigate('detail2')
+    onNavigate('restaurant')
   }
 
   return (
