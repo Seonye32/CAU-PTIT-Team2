@@ -8,11 +8,11 @@ export default function MapTab({ active, onNavigate }) {
           <span className="app-logo">Dishcover</span>
           <div className="search-bar">
             <IconSearch size={14} color="var(--gray400)" />
-            <span>하노이에서 검색</span>
+            <span>Search in Hanoi</span>
           </div>
         </div>
         <div className="filter-chips">
-          {['전체', '친구 방문', '현지인 추천', '쌀국수', '반미', '커피'].map((label, i) => (
+          {['All', 'Visited by Friends', 'Local Picks', 'Pho', 'Banh Mi', 'Coffee'].map((label, i) => (
             <div key={label} className={`chip${i === 0 ? ' active' : ''}`}>{label}</div>
           ))}
         </div>
@@ -82,7 +82,7 @@ export default function MapTab({ active, onNavigate }) {
             <div className="map-card-img">🍚</div>
             <div className="map-card-info">
               <div className="map-card-name">Bún Chả Hương Liên</div>
-              <div className="map-card-sub">분짜 · 호안끼엠 구</div>
+              <div className="map-card-sub">Bun Cha · Hoan Kiem District</div>
               <div className="map-card-badges">
                 <div className="stars">
                   {'★★★★'.split('').map((s, i) => <span key={i} style={{ color: 'var(--amber200)' }}>{s}</span>)}
@@ -90,8 +90,8 @@ export default function MapTab({ active, onNavigate }) {
                 </div>
               </div>
               <div className="map-card-badges">
-                <span className="badge-sm badge-friend">👥 친구 2명 방문</span>
-                <span className="badge-sm badge-stamp">🎯 하노이 must-eat</span>
+                <span className="badge-sm badge-friend">👥 2 friends visited</span>
+                <span className="badge-sm badge-stamp">🎯 Hanoi must-eat</span>
               </div>
             </div>
           </div>

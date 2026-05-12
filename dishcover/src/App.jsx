@@ -11,10 +11,10 @@ import StampsTab from './components/StampsTab'
 import GuideTab from './components/GuideTab'
 
 const TABS = [
-  { id: 'map',    label: '탐색',     Icon: IconMap2 },
-  { id: 'detail', label: '식당',     Icon: IconBuildingStore },
-  { id: 'stamps', label: '스탬프',   Icon: IconRosette },
-  { id: 'guide',  label: '로컬가이드', Icon: IconUserStar },
+  { id: 'map',    label: 'Explore',     Icon: IconMap2 },
+  { id: 'detail', label: 'Restaurant',  Icon: IconBuildingStore },
+  { id: 'stamps', label: 'Stamps',      Icon: IconRosette },
+  { id: 'guide',  label: 'Local Guide', Icon: IconUserStar },
 ]
 
 export default function App() {
@@ -51,42 +51,6 @@ export default function App() {
               </button>
             ))}
           </nav>
-        </div>
-      </div>
-
-      <div className="sidebar">
-        <div className="sidebar-logo">Dishcover</div>
-        <div className="sidebar-desc">지도 기반 음식 소셜 앱 — 여행자와 현지인을 잇다</div>
-
-        <div className="sidebar-menu">
-          {[
-            { id: 'map',    Icon: IconMap2,          title: '탐색 화면',       desc: '지도에서 식당 핀 확인, 친구 방문·현지인 추천·주의 구분' },
-            { id: 'detail', Icon: IconBuildingStore, title: '식당 상세 화면',   desc: 'Tourist trap 경고, 친구 방문, 사진 인증 리뷰, 현지인 추천' },
-            { id: 'stamps', Icon: IconRosette,       title: '스탬프 랠리',      desc: '코스 완성 시 프로필 뱃지·포인트 보상, 진행 현황 추적' },
-            { id: 'guide',  Icon: IconUserStar,      title: '로컬 가이드 화면', desc: '포인트 경쟁 리더보드, 레벨업 보상, 획득 뱃지 관리' },
-          ].map(({ id, Icon, title, desc }) => (
-            <div
-              key={id}
-              className={`menu-item${activeTab === id ? ' menu-item--active' : ''}`}
-              onClick={() => setActiveTab(id)}
-            >
-              <div className="menu-item-title">
-                <Icon size={16} color="var(--amber200)" />
-                {title}
-              </div>
-              <div className="menu-item-desc">{desc}</div>
-            </div>
-          ))}
-        </div>
-
-        <div className="trust-box">
-          <div className="trust-box-title">부정 리뷰 방지</div>
-          <div className="trust-box-body">
-            📸 앱 내 촬영 사진 필수<br />
-            📍 위치 기반 현지인 인증<br />
-            ☎️ 현지 전화번호 인증<br />
-            👍 리뷰 유용성 평점 시스템
-          </div>
         </div>
       </div>
     </div>

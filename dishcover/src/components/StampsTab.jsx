@@ -3,8 +3,8 @@ import { IconAward } from '@tabler/icons-react'
 const rallies = [
   {
     icon: '🍜',
-    name: '하노이 Must-Eat 5',
-    progress: '3/5 완료 · 뱃지까지 2개 남았어요',
+    name: 'Hanoi Must-Eat 5',
+    progress: '3/5 completed · 2 more to earn the badge',
     pct: 60,
     stamps: [
       { emoji: '🍜', done: true },
@@ -13,14 +13,14 @@ const rallies = [
       { emoji: '🍚', done: false },
       { emoji: '🥐', done: false },
     ],
-    reward: <><strong>하노이 미식가</strong> 프로필 뱃지</>,
+    reward: <><strong>Hanoi Foodie</strong> profile badge</>,
     completed: false,
     awardColor: 'var(--amber200)',
   },
   {
     icon: '🍚',
-    name: '서울 비빔밥 투어',
-    progress: '5/5 완료',
+    name: 'Seoul Bibimbap Tour',
+    progress: '5/5 completed',
     pct: 100,
     stamps: [
       { emoji: '🍚', done: true, doneStyle: { background: 'var(--green50)' } },
@@ -29,7 +29,7 @@ const rallies = [
       { emoji: '🫕', done: true, doneStyle: { background: 'var(--green50)' } },
       { emoji: '🍳', done: true, doneStyle: { background: 'var(--green50)' } },
     ],
-    reward: <><strong style={{ color: 'var(--green600)' }}>서울 비빔밥 마스터</strong> 프로필 뱃지</>,
+    reward: <><strong style={{ color: 'var(--green600)' }}>Seoul Bibimbap Master</strong> profile badge</>,
     completed: true,
     fillColor: 'var(--green400)',
     rewardStyle: { color: 'var(--green600)' },
@@ -37,11 +37,11 @@ const rallies = [
   },
   {
     icon: '🥐',
-    name: '베트남 반미 투어',
-    progress: '0/6 완료 · 새 랠리!',
+    name: 'Vietnam Banh Mi Tour',
+    progress: '0/6 completed · New rally!',
     pct: 0,
     stamps: Array(5).fill({ emoji: '🥐', done: false }),
-    reward: <><strong>반미 헌터</strong> 프로필 뱃지 + 10,000P</>,
+    reward: <><strong>Banh Mi Hunter</strong> profile badge + 10,000P</>,
     completed: false,
     awardColor: 'var(--amber200)',
   },
@@ -51,8 +51,8 @@ export default function StampsTab({ active }) {
   return (
     <div className={`tab-content${active ? '' : ' hidden'}`}>
       <div className="stamps-header">
-        <div className="stamps-title">스탬프 랠리</div>
-        <div className="stamps-sub">특별 코스를 완성하고 뱃지를 획득하세요</div>
+        <div className="stamps-title">Stamp Rally</div>
+        <div className="stamps-sub">Complete special courses and earn badges</div>
       </div>
       <div className="stamps-body">
         {rallies.map((r) => (
@@ -63,7 +63,7 @@ export default function StampsTab({ active }) {
                 <div className="rally-name">{r.name}</div>
                 <div className="rally-progress-text">{r.progress}</div>
               </div>
-              {r.completed && <span className="completed-badge">완료 ✓</span>}
+              {r.completed && <span className="completed-badge">Completed ✓</span>}
             </div>
             <div className="progress-bar">
               <div className="progress-fill" style={{ width: `${r.pct}%`, background: r.fillColor }} />
@@ -82,7 +82,7 @@ export default function StampsTab({ active }) {
             <div className="reward-row">
               <IconAward size={16} color={r.awardColor} />
               <div className="reward-text" style={r.rewardStyle}>
-                {r.completed ? '획득: ' : '완성 보상: '}{r.reward}
+                {r.completed ? 'Earned: ' : 'Completion Reward: '}{r.reward}
               </div>
             </div>
           </div>
