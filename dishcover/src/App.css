@@ -112,7 +112,7 @@ body {
 .map-header {
   padding: 10px 16px 8px;
   background: #1a1a3e;
-  z-index: 2;
+  z-index: 5;
   position: relative;
 }
 .map-header-top { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
