@@ -108,7 +108,7 @@ body {
 
 /* ── MAP ── */
 .map-header {
-  padding: 14px 16px 8px;
+  padding: 10px 16px 8px;
   background: #1a1a3e;
   z-index: 2;
   position: relative;
@@ -125,7 +125,7 @@ body {
   align-items: center;
   gap: 6px;
 }
-.search-bar span { font-size: 12px; color: var(--gray400); }
+.search-bar span { font-size: 12px; color: var(--gray400); white-space: nowrap; }
 
 .filter-chips { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: none; }
 .filter-chips::-webkit-scrollbar { display: none; }

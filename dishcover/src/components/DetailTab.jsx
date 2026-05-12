@@ -1,10 +1,13 @@
-import { IconArrowLeft, IconMapPin, IconAlertTriangle, IconThumbUp, IconThumbDown } from '@tabler/icons-react'
+import { IconArrowLeft, IconMapPin, IconThumbUp, IconThumbDown } from '@tabler/icons-react'
+import bunChaImg from '../assets/images/bun-cha-huong-lien.jpeg'
+import bunChaImg2 from '../assets/images/bun-cha-huong-lien2.jpg'
+import bunChaStoreImg from '../assets/images/bun-cha-store.jpg'
 
 export default function DetailTab({ active, onBack }) {
   return (
     <div className={`tab-content${active ? '' : ' hidden'}`}>
       <div className="detail-hero">
-        🍜
+        <img src={bunChaStoreImg} alt="Bún Chả Hương Liên" style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }} />
         <div className="detail-hero-overlay" />
         <button className="detail-back" onClick={onBack}>
           <IconArrowLeft size={14} color="#333" />
@@ -52,7 +55,9 @@ export default function DetailTab({ active, onBack }) {
             </div>
             <span className="verified-badge">✓ Verified</span>
           </div>
-          <div className="review-photo">🍜</div>
+          <div className="review-photo" style={{ padding: 0, overflow: 'hidden' }}>
+            <img src={bunChaImg2} alt="Bún Chả review" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          </div>
           <div className="review-text">
             I waited in line from 7 a.m., and it was totally worth it. The broth was incredibly rich, and the noodles had a great texture. A must-visit spot if you come to Hanoi!
           </div>
@@ -71,7 +76,9 @@ export default function DetailTab({ active, onBack }) {
             </div>
             <span className="verified-badge" style={{ background: 'var(--green50)', color: 'var(--green600)' }}>Local</span>
           </div>
-          <div className="review-photo" style={{ background: 'var(--teal50)' }}>🥣</div>
+          <div className="review-photo" style={{ padding: 0, overflow: 'hidden' }}>
+            <img src={bunChaImg} alt="Bún Chả review" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          </div>
           <div className="review-text">
             I come here almost every week! If you go early in the morning, you can enjoy the freshest ingredients. Make sure to ask for extra cilantro 🌿
           </div>

@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { IconSearch } from '@tabler/icons-react'
 import phoThinImg from '../assets/images/pho-thin-bo-ho.jpg'
+import bunChaImg from '../assets/images/bun-cha-huong-lien.jpeg'
+import logoImg from '../assets/images/dishcover-text-logo.png'
 
 const PINS = {
   noodle: {
@@ -11,6 +13,7 @@ const PINS = {
     reviews: '218',
     color: '#1D9E75',
     badges: ['👥 3 friends visited', '🎯 Hanoi must-eat'],
+    category: 'friends',
   },
   rice: {
     emoji: '🍚',
@@ -20,26 +23,44 @@ const PINS = {
     reviews: '324',
     color: '#BA7517',
     badges: ['👥 2 friends visited', '🎯 Hanoi must-eat'],
+    category: ['local', 'friends'],
   },
+}
+
+const FILTERS = ['All', 'Visited by Friends', 'Local Picks']
+
+const isVisible = (category, filter) => {
+  if (filter === 'All') return true
+  const cats = Array.isArray(category) ? category : [category]
+  if (filter === 'Visited by Friends') return cats.includes('friends')
+  if (filter === 'Local Picks') return cats.includes('local')
+  return true
 }
 
 export default function MapTab({ active, onNavigate }) {
   const [selected, setSelected] = useState('rice')
+  const [activeFilter, setActiveFilter] = useState('All')
   const pin = PINS[selected]
+
+  const pinOpacity = (category) => isVisible(category, activeFilter) ? 1 : 0.2
 
   return (
     <div className={`tab-content${active ? '' : ' hidden'}`}>
       <div className="map-header">
         <div className="map-header-top">
-          <span className="app-logo">Dishcover</span>
+          <img src={logoImg} alt="Dishcover" style={{ height: 18, objectFit: 'contain' }} />
           <div className="search-bar">
             <IconSearch size={14} color="var(--gray400)" />
             <span>Search in Hanoi</span>
           </div>
         </div>
         <div className="filter-chips">
-          {['All', 'Visited by Friends', 'Local Picks'].map((label, i) => (
-            <div key={label} className={`chip${i === 0 ? ' active' : ''}`}>{label}</div>
+          {FILTERS.map((label) => (
+            <div
+              key={label}
+              className={`chip${activeFilter === label ? ' active' : ''}`}
+              onClick={() => setActiveFilter(label)}
+            >{label}</div>
           ))}
         </div>
       </div>
@@ -68,13 +89,13 @@ export default function MapTab({ active, onNavigate }) {
           <ellipse cx="140" cy="265" rx="28" ry="16" fill="#b8d4c0" opacity="0.6"/>
 
           {/* Pin: tourist trap */}
-          <g transform="translate(100,88)">
+          <g transform="translate(100,88)" opacity={pinOpacity('none')}>
             <circle r="13" fill="#E24B4A" opacity="0.15"/>
             <circle r="9" fill="#E24B4A"/>
             <text x="0" y="4" textAnchor="middle" fontSize="9" fill="white" fontWeight="700">!</text>
           </g>
           {/* Pin: friend visited (noodle) */}
-          <g transform="translate(165,130)" style={{ cursor: 'pointer' }} onClick={() => selected === 'noodle' ? onNavigate('detail2') : setSelected('noodle')}>
+          <g transform="translate(165,130)" opacity={pinOpacity('friends')} style={{ cursor: 'pointer' }} onClick={() => isVisible('friends', activeFilter) && (selected === 'noodle' ? onNavigate('detail2') : setSelected('noodle'))}>
             <circle r={selected === 'noodle' ? 16 : 13} fill="#1D9E75" opacity="0.2"/>
             <circle r={selected === 'noodle' ? 11 : 9} fill="#1D9E75"/>
             <text x="0" y="4" textAnchor="middle" fontSize="10" fill="white">🍜</text>
@@ -84,7 +105,7 @@ export default function MapTab({ active, onNavigate }) {
             </g>}
           </g>
           {/* Pin: stamp rally (rice) */}
-          <g transform="translate(220,80)" style={{ cursor: 'pointer' }} onClick={() => selected === 'rice' ? onNavigate('restaurant') : setSelected('rice')}>
+          <g transform="translate(220,80)" opacity={pinOpacity(PINS.rice.category)} style={{ cursor: 'pointer' }} onClick={() => isVisible(PINS.rice.category, activeFilter) && (selected === 'rice' ? onNavigate('restaurant') : setSelected('rice'))}>
             <circle r={selected === 'rice' ? 16 : 13} fill="#BA7517" opacity="0.2"/>
             <circle r={selected === 'rice' ? 11 : 9} fill="#BA7517"/>
             <text x="0" y="4" textAnchor="middle" fontSize="11" fill="white">🍚</text>
@@ -94,13 +115,13 @@ export default function MapTab({ active, onNavigate }) {
             </g>}
           </g>
           {/* Pin: local */}
-          <g transform="translate(55,170)">
+          <g transform="translate(55,170)" opacity={pinOpacity('other')}>
             <circle r="13" fill="#639922" opacity="0.15"/>
             <circle r="9" fill="#639922"/>
             <text x="0" y="4" textAnchor="middle" fontSize="10" fill="white">🥗</text>
           </g>
           {/* Pin: coffee */}
-          <g transform="translate(160,240)">
+          <g transform="translate(160,240)" opacity={pinOpacity('other')}>
             <circle r="13" fill="#BA7517" opacity="0.15"/>
             <circle r="9" fill="#BA7517"/>
             <text x="0" y="4" textAnchor="middle" fontSize="10" fill="white">☕</text>
@@ -115,7 +136,7 @@ export default function MapTab({ active, onNavigate }) {
           <div className="map-card-inner">
             {selected === 'noodle'
               ? <img src={phoThinImg} alt={pin.name} style={{ width: 52, height: 52, borderRadius: 10, objectFit: 'cover', flexShrink: 0 }} />
-              : <div className="map-card-img">{pin.emoji}</div>
+              : <img src={bunChaImg} alt={pin.name} style={{ width: 52, height: 52, borderRadius: 10, objectFit: 'cover', flexShrink: 0 }} />
             }
             <div className="map-card-info">
               <div className="map-card-name">{pin.name}</div>
