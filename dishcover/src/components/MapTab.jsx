@@ -12,7 +12,7 @@ export default function MapTab({ active, onNavigate }) {
           </div>
         </div>
         <div className="filter-chips">
-          {['All', 'Visited by Friends', 'Local Picks', 'Pho', 'Banh Mi', 'Coffee'].map((label, i) => (
+          {['All', 'Visited by Friends', 'Local Picks'].map((label, i) => (
             <div key={label} className={`chip${i === 0 ? ' active' : ''}`}>{label}</div>
           ))}
         </div>
