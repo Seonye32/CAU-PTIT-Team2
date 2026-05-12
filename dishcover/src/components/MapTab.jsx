@@ -1,6 +1,31 @@
+import { useState } from 'react'
 import { IconSearch } from '@tabler/icons-react'
 
+const PINS = {
+  noodle: {
+    emoji: '🍜',
+    name: 'Phở Thìn Bờ Hồ',
+    sub: 'Pho · Hoan Kiem District',
+    rating: '4.6',
+    reviews: '218',
+    color: '#1D9E75',
+    badges: ['👥 3 friends visited', '🎯 Hanoi must-eat'],
+  },
+  rice: {
+    emoji: '🍚',
+    name: 'Bún Chả Hương Liên',
+    sub: 'Bun Cha · Hoan Kiem District',
+    rating: '4.8',
+    reviews: '324',
+    color: '#BA7517',
+    badges: ['👥 2 friends visited', '🎯 Hanoi must-eat'],
+  },
+}
+
 export default function MapTab({ active, onNavigate }) {
+  const [selected, setSelected] = useState('rice')
+  const pin = PINS[selected]
+
   return (
     <div className={`tab-content${active ? '' : ' hidden'}`}>
       <div className="map-header">
@@ -12,7 +37,7 @@ export default function MapTab({ active, onNavigate }) {
           </div>
         </div>
         <div className="filter-chips">
-          {['All', 'Visited by Friends', 'Local Picks', 'Pho', 'Banh Mi', 'Coffee'].map((label, i) => (
+          {['All', 'Visited by Friends', 'Local Picks'].map((label, i) => (
             <div key={label} className={`chip${i === 0 ? ' active' : ''}`}>{label}</div>
           ))}
         </div>
@@ -45,19 +70,25 @@ export default function MapTab({ active, onNavigate }) {
             <circle r="9" fill="#E24B4A"/>
             <text x="0" y="4" textAnchor="middle" fontSize="9" fill="white" fontWeight="700">!</text>
           </g>
-          {/* Pin: friend visited */}
-          <g transform="translate(165,130)">
-            <circle r="13" fill="#1D9E75" opacity="0.15"/>
-            <circle r="9" fill="#1D9E75"/>
+          {/* Pin: friend visited (noodle) */}
+          <g transform="translate(165,130)" style={{ cursor: 'pointer' }} onClick={() => selected === 'noodle' ? onNavigate('detail2') : setSelected('noodle')}>
+            <circle r={selected === 'noodle' ? 16 : 13} fill="#1D9E75" opacity="0.2"/>
+            <circle r={selected === 'noodle' ? 11 : 9} fill="#1D9E75"/>
             <text x="0" y="4" textAnchor="middle" fontSize="10" fill="white">🍜</text>
+            {selected === 'noodle' && <g>
+              <rect x="-18" y="-28" width="36" height="16" rx="6" fill="#1D9E75"/>
+              <text x="0" y="-17" textAnchor="middle" fontSize="8" fill="white" fontWeight="600">4.6★</text>
+            </g>}
           </g>
-          {/* Pin: stamp rally (selected) */}
-          <g transform="translate(220,80)" style={{ cursor: 'pointer' }} onClick={() => onNavigate('detail')}>
-            <circle r="16" fill="#BA7517" opacity="0.2"/>
-            <circle r="11" fill="#BA7517"/>
+          {/* Pin: stamp rally (rice) */}
+          <g transform="translate(220,80)" style={{ cursor: 'pointer' }} onClick={() => selected === 'rice' ? onNavigate('detail') : setSelected('rice')}>
+            <circle r={selected === 'rice' ? 16 : 13} fill="#BA7517" opacity="0.2"/>
+            <circle r={selected === 'rice' ? 11 : 9} fill="#BA7517"/>
             <text x="0" y="4" textAnchor="middle" fontSize="11" fill="white">🍚</text>
-            <rect x="-18" y="-28" width="36" height="16" rx="6" fill="#BA7517"/>
-            <text x="0" y="-17" textAnchor="middle" fontSize="8" fill="white" fontWeight="600">4.8★</text>
+            {selected === 'rice' && <g>
+              <rect x="-18" y="-28" width="36" height="16" rx="6" fill="#BA7517"/>
+              <text x="0" y="-17" textAnchor="middle" fontSize="8" fill="white" fontWeight="600">4.8★</text>
+            </g>}
           </g>
           {/* Pin: local */}
           <g transform="translate(55,170)">
@@ -77,21 +108,22 @@ export default function MapTab({ active, onNavigate }) {
           <circle cx="140" cy="155" r="2" fill="white"/>
         </svg>
 
-        <div className="map-card" onClick={() => onNavigate('detail')} style={{ cursor: 'pointer' }}>
+        <div className="map-card" onClick={() => onNavigate(selected === 'noodle' ? 'detail2' : 'detail')} style={{ cursor: 'pointer' }}>
           <div className="map-card-inner">
-            <div className="map-card-img">🍚</div>
+            <div className="map-card-img">{pin.emoji}</div>
             <div className="map-card-info">
-              <div className="map-card-name">Bún Chả Hương Liên</div>
-              <div className="map-card-sub">Bun Cha · Hoan Kiem District</div>
+              <div className="map-card-name">{pin.name}</div>
+              <div className="map-card-sub">{pin.sub}</div>
               <div className="map-card-badges">
                 <div className="stars">
                   {'★★★★'.split('').map((s, i) => <span key={i} style={{ color: 'var(--amber200)' }}>{s}</span>)}
-                  <span style={{ color: 'var(--gray600)', fontSize: 10 }}>4.8 (324)</span>
+                  <span style={{ color: 'var(--gray600)', fontSize: 10 }}>{pin.rating} ({pin.reviews})</span>
                 </div>
               </div>
               <div className="map-card-badges">
-                <span className="badge-sm badge-friend">👥 2 friends visited</span>
-                <span className="badge-sm badge-stamp">🎯 Hanoi must-eat</span>
+                {pin.badges.map((b, i) => (
+                  <span key={i} className={`badge-sm ${i === 0 ? 'badge-friend' : 'badge-stamp'}`}>{b}</span>
+                ))}
               </div>
             </div>
           </div>
