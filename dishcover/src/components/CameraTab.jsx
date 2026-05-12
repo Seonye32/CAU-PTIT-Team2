@@ -9,9 +9,10 @@ import {
   IconHome,
 } from '@tabler/icons-react'
 
-export default function CameraTab({ active, photoUrl, onRetake }) {
+export default function CameraTab({ active, photoUrl, onRetake, onNavigate }) {
   const [step, setStep] = useState('preview')
   const [reviewerType, setReviewerType] = useState(null)
+  const [rating, setRating] = useState(0)
 
   const handleWriteReview = () => {
     setStep('chooseType')
@@ -30,6 +31,14 @@ export default function CameraTab({ active, photoUrl, onRetake }) {
   const handleBackToPreview = () => {
     setStep('preview')
     setReviewerType(null)
+    setRating(0)
+  }
+      
+  const handleSubmitReview = () => {
+    setStep('preview')
+    setReviewerType(null)
+    setRating(0)
+    onNavigate('detail2')
   }
 
   return (
@@ -150,11 +159,25 @@ export default function CameraTab({ active, photoUrl, onRetake }) {
                 {reviewerType === 'local' ? 'Local' : 'Tourist'}
               </div>
 
-              <div className="review-form-label">Rate this food</div>
               <div className="review-stars">
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <IconStar key={star} size={22} fill="var(--amber200)" color="var(--amber200)" />
+                  <button
+                    key={star}
+                    type="button"
+                    className="review-star-btn"
+                    onClick={() => setRating(star)}
+                  >
+                    <IconStar
+                      size={24}
+                      fill={star <= rating ? 'var(--amber200)' : 'none'}
+                      color={star <= rating ? 'var(--amber200)' : 'var(--gray200)'}
+                    />
+                  </button>
                 ))}
+
+                <span className="review-rating-text">
+                  {rating > 0 ? `${rating}.0` : 'Select'}
+                </span>
               </div>
 
               <div className="review-form-label">Comment</div>
@@ -163,8 +186,8 @@ export default function CameraTab({ active, photoUrl, onRetake }) {
                 placeholder="Write your review here..."
               />
 
-              <button className="camera-primary-btn full">
-                Submit Review
+              <button className="camera-primary-btn full" onClick={handleSubmitReview}>
+               Submit Review
               </button>
             </div>
 
