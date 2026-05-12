@@ -7,6 +7,7 @@ import {
 } from '@tabler/icons-react'
 import MapTab from './components/MapTab'
 import DetailTab from './components/DetailTab'
+import DetailTab2 from './components/DetailTab2'
 import StampsTab from './components/StampsTab'
 import GuideTab from './components/GuideTab'
 
@@ -33,8 +34,9 @@ export default function App() {
           </div>
 
           <div className="content">
-            <MapTab    active={activeTab === 'map'}    onNavigate={setActiveTab} />
-            <DetailTab active={activeTab === 'detail'} onBack={() => setActiveTab('map')} />
+            <MapTab     active={activeTab === 'map'}     onNavigate={setActiveTab} />
+            <DetailTab  active={activeTab === 'detail'}  onBack={() => setActiveTab('map')} />
+            <DetailTab2 active={activeTab === 'detail2'} onBack={() => setActiveTab('map')} />
             <StampsTab active={activeTab === 'stamps'} />
             <GuideTab  active={activeTab === 'guide'}  />
           </div>
