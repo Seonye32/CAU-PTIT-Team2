@@ -9,6 +9,8 @@ import MapTab from './components/MapTab'
 import DetailTab from './components/DetailTab'
 import StampsTab from './components/StampsTab'
 import GuideTab from './components/GuideTab'
+import VoucherTab from './components/VoucherTab'
+
 
 const TABS = [
   { id: 'map',    label: 'Explore',     Icon: IconMap2 },
@@ -36,7 +38,8 @@ export default function App() {
             <MapTab    active={activeTab === 'map'}    onNavigate={setActiveTab} />
             <DetailTab active={activeTab === 'detail'} onBack={() => setActiveTab('map')} />
             <StampsTab active={activeTab === 'stamps'} />
-            <GuideTab  active={activeTab === 'guide'}  />
+            <GuideTab active={activeTab === 'guide'} onNavigate={setActiveTab} />
+            <VoucherTab active={activeTab === 'voucher'} onBack={() => setActiveTab('guide')} />
           </div>
 
           <nav className="bottom-nav">

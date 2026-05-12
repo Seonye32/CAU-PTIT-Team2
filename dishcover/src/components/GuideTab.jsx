@@ -13,7 +13,7 @@ const earnedBadges = [
   { icon: '🥐', label: 'Banh Mi Hunter (In Progress)', style: { background: 'var(--gray50)', color: 'var(--gray400)', borderColor: 'var(--gray100)' } },
 ]
 
-export default function GuideTab({ active }) {
+export default function GuideTab({ active, onNavigate }) {
   return (
     <div className={`tab-content${active ? '' : ' hidden'}`}>
       <div className="guide-header">
@@ -43,6 +43,10 @@ export default function GuideTab({ active }) {
           <div className="points-bar"><div className="points-fill" /></div>
           <div className="points-next">Earn 560P more to reach Lv.5 · Starbucks 5,000 KRW Voucher</div>
         </div>
+
+        <button className="points-store-btn" onClick={() => onNavigate('voucher')}>
+        Open Points Store
+        </button>
 
         <div className="leaderboard-title">
           <IconTrophy size={16} color="var(--amber200)" />
