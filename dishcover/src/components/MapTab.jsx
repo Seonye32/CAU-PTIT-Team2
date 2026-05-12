@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { IconSearch } from '@tabler/icons-react'
+import phoThinImg from '../assets/images/pho-thin-bo-ho.jpg'
 
 const PINS = {
   noodle: {
@@ -44,6 +45,8 @@ export default function MapTab({ active, onNavigate }) {
       </div>
 
       <div className="map-area">
+        <button className="map-overlay-btn left" onClick={() => onNavigate('profile')}>👤</button>
+        <button className="map-overlay-btn right" onClick={() => onNavigate('socials')}>👥</button>
         <svg className="map-svg" viewBox="0 0 296 320" xmlns="http://www.w3.org/2000/svg">
           <rect width="296" height="320" fill="#e8e4d8"/>
           {/* Roads */}
@@ -81,7 +84,7 @@ export default function MapTab({ active, onNavigate }) {
             </g>}
           </g>
           {/* Pin: stamp rally (rice) */}
-          <g transform="translate(220,80)" style={{ cursor: 'pointer' }} onClick={() => selected === 'rice' ? onNavigate('detail') : setSelected('rice')}>
+          <g transform="translate(220,80)" style={{ cursor: 'pointer' }} onClick={() => selected === 'rice' ? onNavigate('restaurant') : setSelected('rice')}>
             <circle r={selected === 'rice' ? 16 : 13} fill="#BA7517" opacity="0.2"/>
             <circle r={selected === 'rice' ? 11 : 9} fill="#BA7517"/>
             <text x="0" y="4" textAnchor="middle" fontSize="11" fill="white">🍚</text>
@@ -108,9 +111,12 @@ export default function MapTab({ active, onNavigate }) {
           <circle cx="140" cy="155" r="2" fill="white"/>
         </svg>
 
-        <div className="map-card" onClick={() => onNavigate(selected === 'noodle' ? 'detail2' : 'detail')} style={{ cursor: 'pointer' }}>
+        <div className="map-card" onClick={() => onNavigate(selected === 'noodle' ? 'detail2' : 'restaurant')} style={{ cursor: 'pointer' }}>
           <div className="map-card-inner">
-            <div className="map-card-img">{pin.emoji}</div>
+            {selected === 'noodle'
+              ? <img src={phoThinImg} alt={pin.name} style={{ width: 52, height: 52, borderRadius: 10, objectFit: 'cover', flexShrink: 0 }} />
+              : <div className="map-card-img">{pin.emoji}</div>
+            }
             <div className="map-card-info">
               <div className="map-card-name">{pin.name}</div>
               <div className="map-card-sub">{pin.sub}</div>

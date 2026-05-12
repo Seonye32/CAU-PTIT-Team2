@@ -10,10 +10,13 @@ import {
 import MapTab from './components/MapTab'
 import DetailTab from './components/DetailTab'
 import DetailTab2 from './components/DetailTab2'
+import RestaurantTab from './components/RestaurantTab'
 import StampsTab from './components/StampsTab'
 import GuideTab from './components/GuideTab'
 import VoucherTab from './components/VoucherTab'
-import CameraTab from './components/CameraTab'
+import ProfileTab from './components/ProfileTab'
+import SocialsTab from './components/SocialsTab'
+
 
 const TABS = [
   { id: 'map', label: 'Explore', Icon: IconMap2 },
@@ -60,26 +63,15 @@ export default function App() {
           </div>
 
           <div className="content">
-            <input
-              ref={cameraInputRef}
-              className="camera-file-input"
-              type="file"
-              accept="image/*"
-              capture="environment"
-              onChange={handleCameraChange}
-            />
-
-            <MapTab active={activeTab === 'map'} onNavigate={setActiveTab} />
-            <DetailTab active={activeTab === 'detail'} onBack={() => setActiveTab('map')} />
-            <DetailTab2 active={activeTab === 'detail2'} onBack={() => setActiveTab('map')} />
-            <CameraTab
-              active={activeTab === 'camera'}
-              photoUrl={capturedPhoto}
-              onRetake={openCamera}
-            />
+            <MapTab     active={activeTab === 'map'}     onNavigate={setActiveTab} />
+            <RestaurantTab active={activeTab === 'detail'}  onNavigate={setActiveTab} />
+            <DetailTab  active={activeTab === 'restaurant'}  onBack={() => setActiveTab('detail')} />
+            <DetailTab2 active={activeTab === 'detail2'} onBack={() => setActiveTab('detail')} />
             <StampsTab active={activeTab === 'stamps'} />
             <GuideTab active={activeTab === 'guide'} onNavigate={setActiveTab} />
             <VoucherTab active={activeTab === 'voucher'} onBack={() => setActiveTab('guide')} />
+            <ProfileTab active={activeTab === 'profile'} onBack={() => setActiveTab('map')} />
+            <SocialsTab active={activeTab === 'socials'} onBack={() => setActiveTab('map')} />
           </div>
 
           <nav className="bottom-nav">
