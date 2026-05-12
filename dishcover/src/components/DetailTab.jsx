@@ -1,7 +1,14 @@
-import { IconArrowLeft, IconMapPin, IconThumbUp, IconThumbDown } from '@tabler/icons-react'
+import {
+  IconArrowLeft,
+  IconMapPin,
+  IconAlertTriangle,
+  IconThumbUp,
+  IconThumbDown,
+} from '@tabler/icons-react'
 import bunChaImg from '../assets/images/bun-cha-huong-lien.jpeg'
 import bunChaImg2 from '../assets/images/bun-cha-huong-lien2.jpg'
 import bunChaStoreImg from '../assets/images/bun-cha-store.jpg'
+
 
 export default function DetailTab({ active, onBack }) {
   return (
