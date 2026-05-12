@@ -411,57 +411,6 @@ body {
 }
 .earned-badge-icon { font-size: 18px; }
 
-<<<<<<< HEAD
-/* ── CAMERA NAV BUTTON ── */
-.nav-btn-camera {
-  width: 48px;
-  height: 48px;
-  margin-top: -22px;
-  border-radius: 50%;
-  background: var(--amber400);
-  color: #fff;
-  box-shadow: 0 6px 16px rgba(186, 117, 23, .35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-}
-
-.nav-btn-camera.active {
-  color: #fff;
-  background: var(--amber600);
-}
-
-.nav-btn-camera:hover {
-  background: var(--amber600);
-}
-
-/* ── CAMERA TAB ── */
-.camera-screen {
-  flex: 1;
-  background: #111;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  padding: 20px 16px 18px;
-  position: relative;
-}
-
-.camera-top {
-  padding-top: 10px;
-  text-align: center;
-}
-
-.camera-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: 22px;
-  color: #fff;
-}
-
-.camera-sub {
-  font-size: 10px;
-  color: rgba(255,255,255,.6);
-=======
 /* ── VOUCHER ── */
 .voucher-header {
   padding: 32px 16px 14px;
@@ -522,12 +471,174 @@ body {
 .voucher-balance-desc {
   font-size: 10px;
   color: var(--amber800);
->>>>>>> origin/main
   margin-top: 4px;
   line-height: 1.5;
 }
 
-<<<<<<< HEAD
+.voucher-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 16px;
+  scrollbar-width: none;
+}
+
+.voucher-body::-webkit-scrollbar {
+  display: none;
+}
+
+.voucher-category-card {
+  border: .5px solid rgba(0,0,0,.1);
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 10px;
+  background: #fff;
+}
+
+.voucher-category-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.voucher-category-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--gray50);
+  color: var(--amber400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.voucher-category-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111;
+}
+
+.voucher-category-desc {
+  font-size: 10px;
+  color: var(--gray400);
+  margin-top: 1px;
+  line-height: 1.4;
+}
+
+.voucher-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.voucher-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px;
+  background: var(--gray50);
+  border-radius: 10px;
+  gap: 8px;
+}
+
+.voucher-item-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.voucher-item-name {
+  font-size: 11px;
+  font-weight: 500;
+  color: #111;
+}
+
+.voucher-item-points {
+  font-size: 9px;
+  color: var(--gray400);
+  margin-top: 1px;
+}
+
+.voucher-redeem-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 5px 8px;
+  background: var(--gray100);
+  color: var(--gray400);
+  font-size: 9px;
+  font-weight: 500;
+  font-family: 'Sora', sans-serif;
+  cursor: not-allowed;
+  white-space: nowrap;
+}
+
+.points-store-btn {
+  width: 100%;
+  margin-top: 8px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: var(--amber400);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Sora', sans-serif;
+  cursor: pointer;
+}
+
+/* ── CAMERA NAV BUTTON ── */
+.nav-btn-camera {
+  width: 48px;
+  height: 48px;
+  margin-top: -22px;
+  border-radius: 50%;
+  background: var(--amber400);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(186, 117, 23, .35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.nav-btn-camera.active {
+  color: #fff;
+  background: var(--amber600);
+}
+
+.nav-btn-camera:hover {
+  background: var(--amber600);
+}
+
+/* ── CAMERA TAB ── */
+.camera-screen {
+  flex: 1;
+  background: #111;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px 18px;
+  position: relative;
+}
+
+.camera-top {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.camera-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: #fff;
+}
+
+.camera-sub {
+  font-size: 10px;
+  color: rgba(255,255,255,.6);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
 .camera-preview {
   flex: 1;
   display: flex;
@@ -746,115 +857,4 @@ body {
   font-size: 11px;
   font-family: 'Sora', sans-serif;
   outline: none;
-=======
-.voucher-body {
-  flex: 1;
-  overflow-y: auto;
-  padding: 12px 16px;
-  scrollbar-width: none;
-}
-
-.voucher-body::-webkit-scrollbar {
-  display: none;
-}
-
-.voucher-category-card {
-  border: .5px solid rgba(0,0,0,.1);
-  border-radius: 14px;
-  padding: 12px;
-  margin-bottom: 10px;
-  background: #fff;
-}
-
-.voucher-category-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.voucher-category-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: var(--gray50);
-  color: var(--amber400);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.voucher-category-title {
-  font-size: 13px;
-  font-weight: 600;
-  color: #111;
-}
-
-.voucher-category-desc {
-  font-size: 10px;
-  color: var(--gray400);
-  margin-top: 1px;
-  line-height: 1.4;
-}
-
-.voucher-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.voucher-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 9px;
-  background: var(--gray50);
-  border-radius: 10px;
-  gap: 8px;
-}
-
-.voucher-item-left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.voucher-item-name {
-  font-size: 11px;
-  font-weight: 500;
-  color: #111;
-}
-
-.voucher-item-points {
-  font-size: 9px;
-  color: var(--gray400);
-  margin-top: 1px;
-}
-
-.voucher-redeem-btn {
-  border: none;
-  border-radius: 8px;
-  padding: 5px 8px;
-  background: var(--gray100);
-  color: var(--gray400);
-  font-size: 9px;
-  font-weight: 500;
-  font-family: 'Sora', sans-serif;
-  cursor: not-allowed;
-  white-space: nowrap;
-}
-
-.points-store-btn {
-  width: 100%;
-  margin-top: 8px;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 12px;
-  background: var(--amber400);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 600;
-  font-family: 'Sora', sans-serif;
-  cursor: pointer;
->>>>>>> origin/main
 }
