@@ -12,6 +12,8 @@ import RestaurantTab from './components/RestaurantTab'
 import StampsTab from './components/StampsTab'
 import GuideTab from './components/GuideTab'
 import VoucherTab from './components/VoucherTab'
+import ProfileTab from './components/ProfileTab'
+import SocialsTab from './components/SocialsTab'
 
 
 const TABS = [
@@ -44,6 +46,8 @@ export default function App() {
             <StampsTab active={activeTab === 'stamps'} />
             <GuideTab active={activeTab === 'guide'} onNavigate={setActiveTab} />
             <VoucherTab active={activeTab === 'voucher'} onBack={() => setActiveTab('guide')} />
+            <ProfileTab active={activeTab === 'profile'} onBack={() => setActiveTab('map')} />
+            <SocialsTab active={activeTab === 'socials'} onBack={() => setActiveTab('map')} />
           </div>
 
           <nav className="bottom-nav">

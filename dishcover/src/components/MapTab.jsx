@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { IconSearch } from '@tabler/icons-react'
+import phoThinImg from '../assets/images/pho-thin-bo-ho.jpg'
 
 const PINS = {
   noodle: {
@@ -44,6 +45,8 @@ export default function MapTab({ active, onNavigate }) {
       </div>
 
       <div className="map-area">
+        <button className="map-overlay-btn left" onClick={() => onNavigate('profile')}>👤</button>
+        <button className="map-overlay-btn right" onClick={() => onNavigate('socials')}>👥</button>
         <svg className="map-svg" viewBox="0 0 296 320" xmlns="http://www.w3.org/2000/svg">
           <rect width="296" height="320" fill="#e8e4d8"/>
           {/* Roads */}
@@ -110,7 +113,10 @@ export default function MapTab({ active, onNavigate }) {
 
         <div className="map-card" onClick={() => onNavigate(selected === 'noodle' ? 'detail2' : 'restaurant')} style={{ cursor: 'pointer' }}>
           <div className="map-card-inner">
-            <div className="map-card-img">{pin.emoji}</div>
+            {selected === 'noodle'
+              ? <img src={phoThinImg} alt={pin.name} style={{ width: 52, height: 52, borderRadius: 10, objectFit: 'cover', flexShrink: 0 }} />
+              : <div className="map-card-img">{pin.emoji}</div>
+            }
             <div className="map-card-info">
               <div className="map-card-name">{pin.name}</div>
               <div className="map-card-sub">{pin.sub}</div>

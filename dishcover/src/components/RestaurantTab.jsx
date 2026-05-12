@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { IconSearch, IconMapPin } from '@tabler/icons-react'
+import phoThinImg from '../assets/images/pho-thin-bo-ho.jpg'
 
 const RESTAURANTS = [
   {
@@ -13,7 +14,8 @@ const RESTAURANTS = [
     dest: 'restaurant',
   },
   {
-    emoji: '🍜',
+    emoji: null,
+    img: phoThinImg,
     name: 'Phở Thìn Bờ Hồ',
     cuisine: 'Pho · Hoan Kiem',
     rating: '4.6',
@@ -92,9 +94,10 @@ export default function RestaurantTab({ active, onNavigate }) {
             onClick={() => r.dest && onNavigate(r.dest)}
           >
             <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-              <div className="map-card-img" style={{ width: 44, height: 44, fontSize: 22, flexShrink: 0 }}>
-                {r.emoji}
-              </div>
+              {r.img
+                ? <img src={r.img} alt={r.name} style={{ width: 44, height: 44, borderRadius: 10, objectFit: 'cover', flexShrink: 0 }} />
+                : <div className="map-card-img" style={{ width: 44, height: 44, fontSize: 22, flexShrink: 0 }}>{r.emoji}</div>
+              }
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div className="map-card-name">{r.name}</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 4, marginTop: 2 }}>
