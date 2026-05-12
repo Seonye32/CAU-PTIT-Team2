@@ -13,14 +13,7 @@ import DetailTab2 from './components/DetailTab2'
 import StampsTab from './components/StampsTab'
 import GuideTab from './components/GuideTab'
 import VoucherTab from './components/VoucherTab'
-<<<<<<< Updated upstream
 import CameraTab from './components/CameraTab'
-=======
-import ProfileTab from './components/ProfileTab'
-import SocialsTab from './components/SocialsTab'
-import CameraTab from './components/CameraTab'
-
->>>>>>> Stashed changes
 
 const TABS = [
   { id: 'map', label: 'Explore', Icon: IconMap2 },
