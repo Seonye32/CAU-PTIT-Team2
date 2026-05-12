@@ -8,6 +8,7 @@ import {
 import MapTab from './components/MapTab'
 import DetailTab from './components/DetailTab'
 import DetailTab2 from './components/DetailTab2'
+import RestaurantTab from './components/RestaurantTab'
 import StampsTab from './components/StampsTab'
 import GuideTab from './components/GuideTab'
 import VoucherTab from './components/VoucherTab'
@@ -37,8 +38,9 @@ export default function App() {
 
           <div className="content">
             <MapTab     active={activeTab === 'map'}     onNavigate={setActiveTab} />
-            <DetailTab  active={activeTab === 'detail'}  onBack={() => setActiveTab('map')} />
-            <DetailTab2 active={activeTab === 'detail2'} onBack={() => setActiveTab('map')} />
+            <RestaurantTab active={activeTab === 'detail'}  onNavigate={setActiveTab} />
+            <DetailTab  active={activeTab === 'restaurant'}  onBack={() => setActiveTab('detail')} />
+            <DetailTab2 active={activeTab === 'detail2'} onBack={() => setActiveTab('detail')} />
             <StampsTab active={activeTab === 'stamps'} />
             <GuideTab active={activeTab === 'guide'} onNavigate={setActiveTab} />
             <VoucherTab active={activeTab === 'voucher'} onBack={() => setActiveTab('guide')} />

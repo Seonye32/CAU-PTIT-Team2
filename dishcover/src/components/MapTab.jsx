@@ -81,7 +81,7 @@ export default function MapTab({ active, onNavigate }) {
             </g>}
           </g>
           {/* Pin: stamp rally (rice) */}
-          <g transform="translate(220,80)" style={{ cursor: 'pointer' }} onClick={() => selected === 'rice' ? onNavigate('detail') : setSelected('rice')}>
+          <g transform="translate(220,80)" style={{ cursor: 'pointer' }} onClick={() => selected === 'rice' ? onNavigate('restaurant') : setSelected('rice')}>
             <circle r={selected === 'rice' ? 16 : 13} fill="#BA7517" opacity="0.2"/>
             <circle r={selected === 'rice' ? 11 : 9} fill="#BA7517"/>
             <text x="0" y="4" textAnchor="middle" fontSize="11" fill="white">🍚</text>
@@ -108,7 +108,7 @@ export default function MapTab({ active, onNavigate }) {
           <circle cx="140" cy="155" r="2" fill="white"/>
         </svg>
 
-        <div className="map-card" onClick={() => onNavigate(selected === 'noodle' ? 'detail2' : 'detail')} style={{ cursor: 'pointer' }}>
+        <div className="map-card" onClick={() => onNavigate(selected === 'noodle' ? 'detail2' : 'restaurant')} style={{ cursor: 'pointer' }}>
           <div className="map-card-inner">
             <div className="map-card-img">{pin.emoji}</div>
             <div className="map-card-info">
