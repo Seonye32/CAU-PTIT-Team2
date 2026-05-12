@@ -1,4 +1,6 @@
-import { IconArrowLeft, IconGift, IconShoppingCart, IconBuildingStore } from '@tabler/icons-react'
+import { useState } from 'react'
+import { IconArrowLeft, IconGift, IconShoppingCart, IconBuildingStore, IconX } from '@tabler/icons-react'
+import qrCodeImg from '../assets/images/qrcode-example.jpg'
 
 const voucherCategories = [
   {
@@ -24,6 +26,16 @@ const voucherCategories = [
 ]
 
 export default function VoucherTab({ active, onBack }) {
+  const [popup, setPopup] = useState(null)
+  const [points, setPoints] = useState(6240)
+
+  const handleRedeem = (voucher) => {
+    if (voucher.points <= points) {
+      setPoints(p => p - voucher.points)
+      setPopup(voucher.name)
+    }
+  }
+
   return (
     <div className={`tab-content${active ? '' : ' hidden'}`}>
       <div className="voucher-header">
@@ -38,8 +50,8 @@ export default function VoucherTab({ active, onBack }) {
 
       <div className="voucher-balance-card">
         <div className="voucher-balance-label">Available Points</div>
-        <div className="voucher-balance-value">1,240P</div>
-        <div className="voucher-balance-desc">Earn 3,760P more to redeem a 5,000 KRW voucher.</div>
+        <div className="voucher-balance-value">{points.toLocaleString()}P</div>
+        <div className="voucher-balance-desc">{points >= 5000 ? 'You have enough points to redeem vouchers!' : 'Not enough points to redeem.'}</div>
       </div>
 
       <div className="voucher-body">
@@ -63,8 +75,13 @@ export default function VoucherTab({ active, onBack }) {
                       <div className="voucher-item-points">{voucher.points.toLocaleString()}P required</div>
                     </div>
                   </div>
-                  <button className="voucher-redeem-btn" disabled>
-                    Not enough
+                  <button
+                    className="voucher-redeem-btn"
+                    disabled={voucher.points > points}
+                    style={voucher.points <= points ? { background: 'var(--amber400)', color: '#fff', cursor: 'pointer' } : undefined}
+                    onClick={() => handleRedeem(voucher)}
+                  >
+                    {voucher.points <= points ? 'Redeem' : 'Not enough'}
                   </button>
                 </div>
               ))}
@@ -72,6 +89,33 @@ export default function VoucherTab({ active, onBack }) {
           </div>
         ))}
       </div>
+
+      {popup && (
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'rgba(0,0,0,.6)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          zIndex: 10,
+        }} onClick={() => setPopup(null)}>
+          <div style={{
+            background: '#1e1e4a',
+            borderRadius: 16,
+            padding: 20,
+            width: 220,
+            textAlign: 'center',
+            border: '.5px solid rgba(255,255,255,.1)',
+          }} onClick={(e) => e.stopPropagation()}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+              <div style={{ fontSize: 13, fontWeight: 600, color: '#e8e8f8' }}>{popup}</div>
+              <button onClick={() => setPopup(null)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--gray400)' }}>
+                <IconX size={16} />
+              </button>
+            </div>
+            <img src={qrCodeImg} alt="QR Code" style={{ width: '100%', borderRadius: 10 }} />
+            <div style={{ fontSize: 10, color: 'var(--gray400)', marginTop: 10 }}>Show this QR code at the store</div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

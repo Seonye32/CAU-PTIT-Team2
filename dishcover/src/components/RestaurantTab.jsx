@@ -1,16 +1,23 @@
 import { useState } from 'react'
 import { IconSearch, IconMapPin } from '@tabler/icons-react'
 import phoThinImg from '../assets/images/pho-thin-bo-ho.jpg'
+import bunChaImg from '../assets/images/bun-cha-huong-lien.jpeg'
+import bunBoImg from '../assets/images/bun-bo-nam-bo.jpg'
+import cafeGiangImg from '../assets/images/cafe-giang.jpeg'
+import banhMiImg from '../assets/images/banh-mi.jpg'
+import logoImg from '../assets/images/dishcover-text-logo.png'
 
 const RESTAURANTS = [
   {
-    emoji: '🍚',
+    emoji: null,
+    img: bunChaImg,
     name: 'Bún Chả Hương Liên',
     cuisine: 'Bun Cha · Hoan Kiem',
     rating: '4.8',
     reviews: 324,
     badges: ['👥 2 friends', '🎯 Must-eat'],
     badgeStyles: ['badge-friend', 'badge-stamp'],
+    categories: ['friends', 'must-eat'],
     dest: 'restaurant',
   },
   {
@@ -22,50 +29,63 @@ const RESTAURANTS = [
     reviews: 218,
     badges: ['👥 3 friends', '🎯 Must-eat'],
     badgeStyles: ['badge-friend', 'badge-stamp'],
+    categories: ['friends', 'must-eat'],
     dest: 'detail2',
   },
   {
-    emoji: '🥗',
+    emoji: null,
+    img: bunBoImg,
     name: 'Bún Bò Nam Bộ',
     cuisine: 'Bun Bo · Ba Dinh',
     rating: '4.4',
     reviews: 143,
     badges: ['🏠 Local Pick'],
     badgeStyles: ['badge-friend'],
+    categories: ['local'],
     dest: null,
   },
   {
-    emoji: '☕',
+    emoji: null,
+    img: cafeGiangImg,
     name: 'Cà Phê Trứng Giảng',
     cuisine: 'Egg Coffee · Old Quarter',
     rating: '4.7',
     reviews: 512,
-    badges: ['👥 1 friend', '🎯 Must-try'],
+    badges: ['👥 1 friend', '🎯 Must-eat'],
     badgeStyles: ['badge-friend', 'badge-stamp'],
+    categories: ['friends', 'must-eat'],
     dest: null,
   },
   {
-    emoji: '🥐',
+    emoji: null,
+    img: banhMiImg,
     name: 'Bánh Mì 25',
     cuisine: 'Banh Mi · Hoan Kiem',
     rating: '4.5',
     reviews: 389,
     badges: ['🏠 Local Pick'],
     badgeStyles: ['badge-friend'],
+    categories: ['local'],
     dest: null,
   },
 ]
 
 const FILTERS = ['All', 'Friends', 'Local Picks', 'Must-eat']
 
+const filterKey = { 'Friends': 'friends', 'Local Picks': 'local', 'Must-eat': 'must-eat' }
+
 export default function RestaurantTab({ active, onNavigate }) {
   const [activeFilter, setActiveFilter] = useState(0)
+
+  const filtered = FILTERS[activeFilter] === 'All'
+    ? RESTAURANTS
+    : RESTAURANTS.filter(r => r.categories.includes(filterKey[FILTERS[activeFilter]]))
 
   return (
     <div className={`tab-content${active ? '' : ' hidden'}`}>
       <div className="map-header">
         <div className="map-header-top">
-          <span className="app-logo">Dishcover</span>
+          <img src={logoImg} alt="Dishcover" style={{ height: 18, objectFit: 'contain' }} />
           <div className="search-bar">
             <IconSearch size={14} color="var(--gray400)" />
             <span>Search restaurants</span>
@@ -86,7 +106,7 @@ export default function RestaurantTab({ active, onNavigate }) {
 
       <div className="stamps-body">
         <div className="section-title" style={{ marginTop: 0 }}>Near You · Hanoi</div>
-        {RESTAURANTS.map((r) => (
+        {filtered.map((r) => (
           <div
             key={r.name}
             className="rally-card"

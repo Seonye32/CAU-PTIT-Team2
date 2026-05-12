@@ -1,14 +1,19 @@
 import { IconArrowLeft, IconMapPin, IconStar, IconBookmark } from '@tabler/icons-react'
+import bunChaImg from '../assets/images/bun-cha-huong-lien.jpeg'
+import phoThinImg from '../assets/images/pho-thin-bo-ho.jpg'
+import cafeGiangImg from '../assets/images/cafe-giang.jpeg'
+import banhMiImg from '../assets/images/banh-mi.jpg'
+import bunBoImg from '../assets/images/bun-bo-nam-bo.jpg'
 
 const VISITED = [
-  { emoji: '🍚', name: 'Bún Chả Hương Liên', sub: 'Bun Cha · Hoan Kiem', rating: '4.8', date: '2 days ago' },
-  { emoji: '☕', name: 'Cà Phê Trứng Giảng', sub: 'Egg Coffee · Old Quarter', rating: '4.7', date: '1 week ago' },
-  { emoji: '🍜', name: 'Phở Thìn Bờ Hồ', sub: 'Pho · Hoan Kiem', rating: '4.6', date: '2 weeks ago' },
+  { img: bunChaImg,   name: 'Bún Chả Hương Liên', sub: 'Bun Cha · Hoan Kiem',    rating: '4.8', date: '2 days ago' },
+  { img: cafeGiangImg, name: 'Cà Phê Trứng Giảng', sub: 'Egg Coffee · Old Quarter', rating: '4.7', date: '1 week ago' },
+  { img: phoThinImg,  name: 'Phở Thìn Bờ Hồ',     sub: 'Pho · Hoan Kiem',         rating: '4.6', date: '2 weeks ago' },
 ]
 
 const SAVED = [
-  { emoji: '🥐', name: 'Bánh Mì 25', sub: 'Banh Mi · Hoan Kiem' },
-  { emoji: '🥗', name: 'Bún Bò Nam Bộ', sub: 'Bun Bo · Ba Dinh' },
+  { img: banhMiImg, name: 'Bánh Mì 25',     sub: 'Banh Mi · Hoan Kiem' },
+  { img: bunBoImg,  name: 'Bún Bò Nam Bộ',  sub: 'Bun Bo · Ba Dinh' },
 ]
 
 export default function ProfileTab({ active, onBack }) {
@@ -56,7 +61,7 @@ export default function ProfileTab({ active, onBack }) {
         {VISITED.map((r) => (
           <div key={r.name} className="rally-card" style={{ marginBottom: 8, padding: 10 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <div className="map-card-img" style={{ width: 40, height: 40, fontSize: 20, flexShrink: 0 }}>{r.emoji}</div>
+              <img src={r.img} alt={r.name} style={{ width: 40, height: 40, borderRadius: 10, objectFit: 'cover', flexShrink: 0 }} />
               <div style={{ flex: 1 }}>
                 <div className="map-card-name">{r.name}</div>
                 <div style={{ fontSize: 10, color: 'var(--gray400)', marginTop: 1 }}>{r.sub}</div>
@@ -76,7 +81,7 @@ export default function ProfileTab({ active, onBack }) {
         {SAVED.map((r) => (
           <div key={r.name} className="rally-card" style={{ marginBottom: 8, padding: 10 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <div className="map-card-img" style={{ width: 40, height: 40, fontSize: 20, flexShrink: 0 }}>{r.emoji}</div>
+              <img src={r.img} alt={r.name} style={{ width: 40, height: 40, borderRadius: 10, objectFit: 'cover', flexShrink: 0 }} />
               <div style={{ flex: 1 }}>
                 <div className="map-card-name">{r.name}</div>
                 <div style={{ fontSize: 10, color: 'var(--gray400)', marginTop: 1 }}>{r.sub}</div>

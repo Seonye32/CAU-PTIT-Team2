@@ -1,10 +1,13 @@
 import { IconArrowLeft, IconMapPin, IconThumbUp, IconThumbDown } from '@tabler/icons-react'
+import bunChaImg from '../assets/images/bun-cha-huong-lien.jpeg'
+import bunChaImg2 from '../assets/images/bun-cha-huong-lien2.jpg'
+import bunChaStoreImg from '../assets/images/bun-cha-store.jpg'
 
 export default function DetailTab({ active, onBack }) {
   return (
     <div className={`tab-content${active ? '' : ' hidden'}`}>
       <div className="detail-hero">
-        🍚
+        <img src={bunChaStoreImg} alt="Bún Chả Hương Liên" style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }} />
         <div className="detail-hero-overlay" />
         <button className="detail-back" onClick={onBack}>
           <IconArrowLeft size={14} color="#333" />
@@ -45,7 +48,9 @@ export default function DetailTab({ active, onBack }) {
             </div>
             <span className="verified-badge">✓ Verified</span>
           </div>
-          <div className="review-photo">🍚</div>
+          <div className="review-photo" style={{ padding: 0, overflow: 'hidden' }}>
+            <img src={bunChaImg2} alt="Bún Chả review" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          </div>
           <div className="review-text">
             This is the place where Obama and Anthony Bourdain had bun cha! The charcoal-grilled pork patties were smoky and perfectly balanced with the dipping broth. Absolutely worth the visit.
           </div>
@@ -64,7 +69,9 @@ export default function DetailTab({ active, onBack }) {
             </div>
             <span className="verified-badge" style={{ background: 'var(--green50)', color: 'var(--green600)' }}>Local</span>
           </div>
-          <div className="review-photo" style={{ background: 'var(--teal50)' }}>🥢</div>
+          <div className="review-photo" style={{ padding: 0, overflow: 'hidden' }}>
+            <img src={bunChaImg} alt="Bún Chả review" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          </div>
           <div className="review-text">
             A Hanoi institution. The bun cha set comes with fresh herbs and nem ran (spring rolls). Go at lunch — they often sell out by early afternoon!
           </div>

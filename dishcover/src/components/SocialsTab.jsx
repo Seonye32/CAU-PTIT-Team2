@@ -1,4 +1,7 @@
 import { IconArrowLeft, IconUsers, IconMapPin } from '@tabler/icons-react'
+import bunChaImg from '../assets/images/bun-cha-huong-lien.jpeg'
+import phoThinImg from '../assets/images/pho-thin-bo-ho.jpg'
+import cafeGiangImg from '../assets/images/cafe-giang.jpeg'
 
 const FRIENDS = [
   {
@@ -28,9 +31,9 @@ const FRIENDS = [
 ]
 
 const FRIEND_PICKS = [
-  { emoji: '🍜', name: 'Phở Thìn Bờ Hồ', sub: 'Pho · Hoan Kiem', friends: '👥 3 friends visited' },
-  { emoji: '🍚', name: 'Bún Chả Hương Liên', sub: 'Bun Cha · Hoan Kiem', friends: '👥 2 friends visited' },
-  { emoji: '☕', name: 'Cà Phê Trứng Giảng', sub: 'Egg Coffee · Old Quarter', friends: '👥 1 friend visited' },
+  { img: phoThinImg,   name: 'Phở Thìn Bờ Hồ',     sub: 'Pho · Hoan Kiem',          friends: '👥 3 friends visited' },
+  { img: bunChaImg,    name: 'Bún Chả Hương Liên',   sub: 'Bun Cha · Hoan Kiem',      friends: '👥 2 friends visited' },
+  { img: cafeGiangImg, name: 'Cà Phê Trứng Giảng',  sub: 'Egg Coffee · Old Quarter', friends: '👥 1 friend visited' },
 ]
 
 export default function SocialsTab({ active, onBack }) {
@@ -70,7 +73,7 @@ export default function SocialsTab({ active, onBack }) {
         {FRIEND_PICKS.map((r) => (
           <div key={r.name} className="rally-card" style={{ marginBottom: 8, padding: 10 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <div className="map-card-img" style={{ width: 40, height: 40, fontSize: 20, flexShrink: 0 }}>{r.emoji}</div>
+              <img src={r.img} alt={r.name} style={{ width: 40, height: 40, borderRadius: 10, objectFit: 'cover', flexShrink: 0 }} />
               <div style={{ flex: 1 }}>
                 <div className="map-card-name">{r.name}</div>
                 <div style={{ fontSize: 10, color: 'var(--gray400)', marginTop: 1 }}>{r.sub}</div>

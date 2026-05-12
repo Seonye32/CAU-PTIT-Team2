@@ -4,7 +4,7 @@ const leaders = [
   { rank: 1,  top: true,  initials: 'TN',   name: 'Tran Ngoc',    meta: '124 reviews · helped 4,210 people', pts: '4,210P', dotStyle: { background: 'var(--amber100)', color: 'var(--amber600)' } },
   { rank: 2,  top: true,  initials: 'MA',   name: 'Minh Anh',     meta: '97 reviews · helped 3,580 people',  pts: '3,580P', dotStyle: { background: 'var(--blue200)',  color: 'var(--blue600)'  } },
   { rank: 3,  top: false, initials: 'HL',   name: 'Hoang Long',   meta: '82 reviews · helped 2,930 people',  pts: '2,930P', dotStyle: { background: 'var(--coral100)',color: 'var(--coral600)' } },
-  { rank: 14, top: true,  initials: 'JS',   name: 'Jisoo Kim (Me)', meta: '38 reviews · helped 847 people',   pts: '1,240P', me: true },
+  { rank: 14, top: true,  initials: 'JS',   name: 'Jisoo Kim (Me)', meta: '38 reviews · helped 847 people',   pts: '6,240P', me: true },
 ]
 
 const earnedBadges = [
@@ -26,7 +26,7 @@ export default function GuideTab({ active, onNavigate }) {
       </div>
 
       <div className="guide-stats">
-        {[['1,240', 'Points'], ['38', 'Reviews'], ['847', 'Travelers Helped']].map(([val, label]) => (
+        {[['6,240', 'Points'], ['38', 'Reviews'], ['847', 'Travelers Helped']].map(([val, label]) => (
           <div className="stat-card" key={label}>
             <div className="stat-val">{val}</div>
             <div className="stat-label">{label}</div>
@@ -37,7 +37,7 @@ export default function GuideTab({ active, onNavigate }) {
       <div className="guide-body">
         <div className="points-bar-wrap">
           <div className="points-bar-label">
-            <span>Lv.4 · 1,240P</span>
+            <span>Lv.4 · 6,240P</span>
             <span style={{ color: 'var(--amber400)' }}>Lv.5 · 1,800P</span>
           </div>
           <div className="points-bar"><div className="points-fill" /></div>
