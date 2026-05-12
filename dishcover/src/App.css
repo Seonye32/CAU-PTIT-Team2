@@ -604,3 +604,276 @@ body {
   font-family: 'Sora', sans-serif;
   cursor: pointer;
 }
+
+/* ── CAMERA NAV BUTTON ── */
+.nav-btn-camera {
+  width: 48px;
+  height: 48px;
+  margin-top: -22px;
+  border-radius: 50%;
+  background: var(--amber400);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(186, 117, 23, .35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.nav-btn-camera.active {
+  color: #fff;
+  background: var(--amber600);
+}
+
+.nav-btn-camera:hover {
+  background: var(--amber600);
+}
+
+/* ── CAMERA TAB ── */
+.camera-screen {
+  flex: 1;
+  background: #111;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px 18px;
+  position: relative;
+}
+
+.camera-top {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.camera-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: #fff;
+}
+
+.camera-sub {
+  font-size: 10px;
+  color: rgba(255,255,255,.6);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+.camera-preview {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.camera-frame {
+  width: 220px;
+  height: 280px;
+  border-radius: 24px;
+  border: 1px dashed rgba(255,255,255,.35);
+  background: rgba(255,255,255,.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.camera-frame-text {
+  font-size: 11px;
+  color: rgba(255,255,255,.65);
+  text-align: center;
+  padding: 0 16px;
+}
+
+.camera-photo-preview {
+  width: 220px;
+  height: 280px;
+  border-radius: 24px;
+  object-fit: cover;
+  border: 1px solid rgba(255,255,255,.18);
+}
+
+.camera-info-card {
+  background: rgba(255,255,255,.08);
+  border: .5px solid rgba(255,255,255,.12);
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.camera-info-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  color: rgba(255,255,255,.75);
+}
+
+.camera-file-input {
+  display: none;
+}
+
+/* ── CAMERA REVIEW FLOW ── */
+.camera-action-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.camera-primary-btn,
+.camera-secondary-btn {
+  border: none;
+  border-radius: 12px;
+  padding: 11px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Sora', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.camera-primary-btn {
+  background: var(--amber400);
+  color: #fff;
+}
+
+.camera-primary-btn:disabled {
+  background: rgba(255,255,255,.15);
+  color: rgba(255,255,255,.4);
+  cursor: not-allowed;
+}
+
+.camera-primary-btn.full {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.camera-secondary-btn {
+  background: rgba(255,255,255,.1);
+  color: #fff;
+  border: .5px solid rgba(255,255,255,.18);
+}
+
+.camera-text-btn {
+  border: none;
+  background: none;
+  color: rgba(255,255,255,.65);
+  font-size: 10px;
+  font-family: 'Sora', sans-serif;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.review-type-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+
+.review-type-card {
+  width: 100%;
+  border: .5px solid rgba(255,255,255,.15);
+  border-radius: 16px;
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  cursor: pointer;
+  font-family: 'Sora', sans-serif;
+}
+
+.review-type-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--amber400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.review-type-icon.local {
+  background: var(--teal400);
+}
+
+.review-type-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.review-type-desc {
+  font-size: 10px;
+  color: rgba(255,255,255,.62);
+  line-height: 1.5;
+  margin-top: 3px;
+}
+
+.review-form-card {
+  margin-top: 18px;
+  background: #fff;
+  color: #111;
+  border-radius: 18px;
+  padding: 14px;
+}
+
+.review-form-photo {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 10px;
+}
+
+.reviewer-badge {
+  display: inline-flex;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: var(--amber50);
+  color: var(--amber600);
+  font-size: 10px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.reviewer-badge.local {
+  background: var(--green50);
+  color: var(--green600);
+}
+
+.review-form-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #111;
+  margin: 8px 0 6px;
+}
+
+.review-stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.review-textarea {
+  width: 100%;
+  height: 78px;
+  resize: none;
+  border: .5px solid rgba(0,0,0,.12);
+  border-radius: 12px;
+  padding: 10px;
+  font-size: 11px;
+  font-family: 'Sora', sans-serif;
+  outline: none;
+}
