@@ -6,7 +6,6 @@ import {
   IconUserStar,
   IconCamera,
 } from '@tabler/icons-react'
-
 import MapTab from './components/MapTab'
 import DetailTab from './components/DetailTab'
 import DetailTab2 from './components/DetailTab2'
@@ -16,6 +15,7 @@ import GuideTab from './components/GuideTab'
 import VoucherTab from './components/VoucherTab'
 import ProfileTab from './components/ProfileTab'
 import SocialsTab from './components/SocialsTab'
+import CameraTab from './components/CameraTab'
 
 
 const TABS = [
