@@ -86,7 +86,7 @@ body {
   border-top: .5px solid rgba(255,255,255,.08);
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-shrink: 0;
   position: relative;
   z-index: 10;
@@ -97,13 +97,14 @@ body {
   align-items: center;
   gap: 3px;
   cursor: pointer;
-  padding: 4px 12px;
+  padding: 4px 0;
   border: none;
   background: none;
   color: var(--gray400);
   border-radius: 8px;
   transition: color .15s;
   font-family: 'Sora', sans-serif;
+  flex: 1;
 }
 .nav-btn.active { color: var(--amber400); }
 .nav-btn span { font-size: 9px; font-weight: 500; }
@@ -112,7 +113,7 @@ body {
 .map-header {
   padding: 10px 16px 8px;
   background: #1a1a3e;
-  z-index: 5;
+  z-index: 2;
   position: relative;
 }
 .map-header-top { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
