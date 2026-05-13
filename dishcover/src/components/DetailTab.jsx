@@ -43,8 +43,7 @@ export default function DetailTab({ active, onBack }) {
           <div className="friend-visited-text">Jisoo and Thanh Lan visited · "Absolutely the best bún chả in Hanoi!"</div>
         </div>
 
-        <div className="section-title">Photo Reviews</div>
-<div className="section-title">Photo Reviews</div>
+        <div className="section-title">Photo Reviews</div>  
 
 <div className="review-card">
   <div className="review-header">
