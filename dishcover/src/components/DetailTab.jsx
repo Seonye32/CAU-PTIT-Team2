@@ -7,7 +7,7 @@ import {
 import bunChaImg from '../assets/images/bun-cha-huong-lien.jpeg'
 import bunChaImg2 from '../assets/images/bun-cha-huong-lien2.jpg'
 import bunChaStoreImg from '../assets/images/bun-cha-store.jpg'
-
+import profileImg from '../assets/images/sticker 2.png'
 
 export default function DetailTab({ active, onBack }) {
   return (
@@ -44,25 +44,54 @@ export default function DetailTab({ active, onBack }) {
         </div>
 
         <div className="section-title">Photo Reviews</div>
+<div className="section-title">Photo Reviews</div>
 
-        <div className="review-card">
-          <div className="review-header">
-            <div className="reviewer-dot">JS</div>
-            <div className="reviewer-info">
-              <div className="reviewer-name">Jisoo · Hanoi</div>
-              <div className="reviewer-meta">📍 On-site Verified · 3 days ago</div>
-            </div>
-            <span className="verified-badge">✓ Verified</span>
-          </div>
+<div className="review-card">
+  <div className="review-header">
+    <img
+      src={profileImg}
+      alt="Jisoo Kim"
+      style={{
+        width: 26,
+        height: 26,
+        borderRadius: '50%',
+        objectFit: 'cover',
+        flexShrink: 0,
+        background: 'var(--amber100)',
+      }}
+    />
+
+    <div className="reviewer-info">
+      <div className="reviewer-name">Jisoo · Hanoi</div>
+      <div className="reviewer-meta">📍 On-site Verified · 3 days ago</div>
+    </div>
+
+    <span className="verified-badge">✓ Verified</span>
+  </div>
+
           <div className="review-photo" style={{ padding: 0, overflow: 'hidden' }}>
-            <img src={bunChaImg2} alt="Bún Chả review" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <img
+              src={bunChaImg2}
+              alt="Bún Chả review"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+              }}
+            />
           </div>
+
           <div className="review-text">
             I waited in line from 11 a.m., and it was totally worth it. The grilled pork patties were incredibly smoky, and the dipping sauce was perfectly balanced. A must-visit spot if you come to Hanoi!
           </div>
+
           <div className="review-helpful">
-            <button className="helpful-btn"><IconThumbUp size={12} /> Helpful (47)</button>
-            <button className="helpful-btn"><IconThumbDown size={12} /> (2)</button>
+            <button className="helpful-btn">
+              <IconThumbUp size={12} /> Helpful (47)
+            </button>
+            <button className="helpful-btn">
+              <IconThumbDown size={12} /> (2)
+            </button>
           </div>
         </div>
 

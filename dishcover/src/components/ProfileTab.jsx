@@ -4,6 +4,7 @@ import phoThinImg from '../assets/images/pho-thin-bo-ho.jpg'
 import cafeGiangImg from '../assets/images/cafe-giang.jpeg'
 import banhMiImg from '../assets/images/banh-mi.jpg'
 import bunBoImg from '../assets/images/bun-bo-nam-bo.jpg'
+import profileImg from '../assets/images/sticker 2.png'
 
 const VISITED = [
   { img: bunChaImg,   name: 'Bún Chả Hương Liên', sub: 'Bun Cha · Hoan Kiem',    rating: '4.8', date: '2 days ago' },
@@ -24,12 +25,19 @@ export default function ProfileTab({ active, onBack, onNavigate, isLocalVerified
           <IconArrowLeft size={14} color="#333" />
         </button>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <div style={{
-            width: 52, height: 52, borderRadius: '50%',
-            background: 'rgba(255,255,255,.25)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: 24, flexShrink: 0,
-          }}>🧑</div>
+          <img
+            src={profileImg}
+            alt="Jisoo Kim"
+            style={{
+              width: 52,
+              height: 52,
+              borderRadius: '50%',
+              objectFit: 'cover',
+              flexShrink: 0,
+              border: '2px solid rgba(255,255,255,.45)',
+            }}
+          />
+          
           <div>
             <div className="guide-name">Jisoo Kim</div>
             <div className="guide-sub" style={{ display: 'flex', alignItems: 'center', gap: 4 }}>

@@ -1,5 +1,6 @@
 import { IconArrowLeft, IconMapPin, IconThumbUp, IconThumbDown } from '@tabler/icons-react'
 
+
 export default function DetailTab2({ active, onBack }) {
   return (
     <div className={`tab-content${active ? '' : ' hidden'}`}>
